@@ -18,8 +18,8 @@ TinyURL is a scalable URL shortening service. This project is built using Go, Do
 This project follows a microservice architecture:
 
 - **Gateway Service**: API entrypoint routing requests to correct backend service.
-- **Shortening Service**: Generates short URLs and puts them in the DB.
-- **Redirect Service**: Converts short codes and redirects the user to the original URL.
+- **Shortening Service**: Generates short URLs and puts them in the DB [Write service].
+- **Redirect Service**: Converts short codes and redirects the user to the original URL [Read service].
 - **ID Generator Service**: Generates sequential numeric IDs used to derive short codes.
 - **Redis Cache**: Stores recently accessed short URL mappings.
 - **PostgreSQL Database**: Stores persistent mappings between short and original URLs.
