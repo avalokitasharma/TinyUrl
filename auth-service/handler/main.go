@@ -1,13 +1,15 @@
 package handler
 
 import (
+	"authservice/repo"
+	"authservice/service"
 	"encoding/json"
 	"net/http"
 )
 
 type Credentials struct {
-	Username string `username`
-	Password string `password`
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
@@ -31,7 +33,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	token, err := service.GenerateToken(user.ID)
+	token, err := service.GenerateJWT(user.ID)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
