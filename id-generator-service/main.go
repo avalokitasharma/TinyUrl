@@ -13,6 +13,6 @@ func main() {
 		val := atomic.AddUint64(&counter, 1)
 		fmt.Fprintf(w, "%d", val)
 	})
-	fmt.Println("Global counter running on :7001")
+	fmt.Println("Global counter running on port:7001")
 	http.ListenAndServe(":7001", nil)
 }
