@@ -9,7 +9,7 @@ func main() {
 	http.HandleFunc("/shorten", proxyToShorteningService)
 	http.HandleFunc("/", proxyToRedirectService)
 
-	log.Println("API gateway listening on :8080")
+	log.Println("API gateway listening on the port :8080")
 	http.ListenAndServe(":8080", nil)
 }
 
